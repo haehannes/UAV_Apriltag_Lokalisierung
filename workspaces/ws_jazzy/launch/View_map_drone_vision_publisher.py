@@ -6,7 +6,7 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 
 
-def _find_repo_root(marker='Apriltag_UAV_Lokalisierung'):
+def _find_repo_root(marker='UAV_Apriltag_Lokalisierung'):
     """Ermittelt das Repository-Wurzelverzeichnis.
 
     Laeuft ausgehend von der Position dieser Launch-Datei die

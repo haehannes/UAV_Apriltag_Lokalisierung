@@ -19,11 +19,11 @@
 # >>> Bei Bedarf anpassen <
 
 # Repo-Root finden: vom Skript-Verzeichnis aufwaerts, bis der Ordner
-# "Apriltag_UAV_Lokalisierung" erreicht ist. Damit sind die Pfade
+# "UAV_Apriltag_Lokalisierung" erreicht ist. Damit sind die Pfade
 # unabhaengig vom Aufrufort und vom konkreten Speicherort des Wrappers.
 # Repo-Root direkt ueber das Home-Verzeichnis. Simpel, aber setzt voraus,
-# dass das Repo unter ~/Apriltag_UAV_Lokalisierung liegt.
-REPO_ROOT="${HOME}/Apriltag_UAV_Lokalisierung"
+# dass das Repo unter ~/UAV_Apriltag_Lokalisierung liegt.
+REPO_ROOT="${HOME}/UAV_Apriltag_Lokalisierung"
 
 # Pfade ausgehend vom Repo-Root.
 SCRIPT="${REPO_ROOT}/workspaces/ws_humble/src/control_package/control/control_console_uxrce.py"

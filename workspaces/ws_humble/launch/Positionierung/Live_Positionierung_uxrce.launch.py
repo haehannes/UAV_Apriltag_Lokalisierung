@@ -26,13 +26,13 @@
 # ---------------------------------------------------------------------------
 # PFADE:
 # Alle Pfade sind relativ zum Repository-Wurzelverzeichnis
-# 'Apriltag_UAV_Lokalisierung' aufgebaut. Die Wurzel wird zur Laufzeit
+# 'UAV_Apriltag_Lokalisierung' aufgebaut. Die Wurzel wird zur Laufzeit
 # ausgehend von der Position dieser Launch-Datei ermittelt (siehe
 # _find_repo_root). Dadurch ist das Skript unabhaengig vom absoluten
 # Speicherort des Repos und vom aktuellen Arbeitsverzeichnis.
 #
 # Erwartete Struktur unterhalb der Repo-Wurzel:
-#   Apriltag_UAV_Lokalisierung/
+#   UAV_Apriltag_Lokalisierung/
 #     workspaces/ws_humble/Einstellungen/
 #       Kamera_intrinsics/  (Kamera-Kalibrierungen)
 #       Maps/Aufgenommen/   (TagSLAM-Karten)
@@ -48,7 +48,7 @@ from launch.actions import ExecuteProcess
 from launch_ros.actions import Node
 
 
-def _find_repo_root(marker='Apriltag_UAV_Lokalisierung'):
+def _find_repo_root(marker='UAV_Apriltag_Lokalisierung'):
     """Ermittelt das Repository-Wurzelverzeichnis.
 
     Laeuft ausgehend von der Position dieser Launch-Datei die

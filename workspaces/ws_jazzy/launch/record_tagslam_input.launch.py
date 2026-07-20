@@ -7,10 +7,10 @@ from launch_ros.actions import Node
 
 
 def _find_repo_root():
-    """Ermittelt die Wurzel des Repositories `Apriltag_UAV_Lokalisierung`.
+    """Ermittelt die Wurzel des Repositories `UAV_Apriltag_Lokalisierung`.
 
     Läuft vom Speicherort dieser Datei aus die Verzeichnishierarchie nach oben,
-    bis ein Verzeichnis mit dem Namen `Apriltag_UAV_Lokalisierung` gefunden wird,
+    bis ein Verzeichnis mit dem Namen `UAV_Apriltag_Lokalisierung` gefunden wird,
     und gibt dessen absoluten Pfad zurück. Dadurch funktionieren die Pfade
     unabhängig davon, wo das Repository im Dateisystem abgelegt ist.
 
@@ -22,12 +22,12 @@ def _find_repo_root():
     """
     path = os.path.dirname(os.path.abspath(__file__))
     while True:
-        if os.path.basename(path) == 'Apriltag_UAV_Lokalisierung':
+        if os.path.basename(path) == 'UAV_Apriltag_Lokalisierung':
             return path
         parent = os.path.dirname(path)
         if parent == path:
             raise RuntimeError(
-                'Repository-Wurzel "Apriltag_UAV_Lokalisierung" nicht gefunden '
+                'Repository-Wurzel "UAV_Apriltag_Lokalisierung" nicht gefunden '
                 '(ausgehend von: {})'.format(os.path.abspath(__file__))
             )
         path = parent
