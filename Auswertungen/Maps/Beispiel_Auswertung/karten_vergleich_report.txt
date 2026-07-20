@@ -1,0 +1,154 @@
+Numerischer Vergleich gegen Referenz: 'Ground Truth'
+====================================================
+
+[Kartierung Versuch 3]  vs.  [Ground Truth]
+  Gemeinsame Tags: 96   nur in Referenz: 1   nur in dieser Karte: 0
+  dx      bias=    -2.50   mean=    6.87   rms=    8.34   max=   20.74   max_signed=   -20.74   [mm]
+  dy      bias=    -0.14   mean=    5.64   rms=    6.98   max=   16.05   max_signed=   +16.05   [mm]
+  dz      bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [mm]
+  d_xy    bias=        -   mean=    9.57   rms=   10.87   max=   21.75   max_signed=        -   [mm]
+  d_xyz   bias=        -   mean=    9.57   rms=   10.87   max=   21.75   max_signed=        -   [mm]
+  droll   bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [deg]
+  dpitch  bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+  dyaw    bias=    -0.05   mean=    0.08   rms=    0.11   max=    0.34   max_signed=    -0.34   [deg]
+  dangle  bias=        -   mean=    0.08   rms=    0.11   max=    0.34   max_signed=        -   [deg]
+  IDs nur in Referenz: [201]
+
+
+Einzelvergleich ausgewaehlter Tags gegen 'Ground Truth'
+=======================================================
+
+[Tag 1]  (Kantenlaenge 0.120 m, Entfernung zum Ursprung 0.240 m)
+  Referenz  x= -0.24000 m  y=  0.00000 m  z=  0.00000 m
+  Karte                            dx       dy       dz     d_xy    d_xyz    droll   dpitch     dyaw   dangle
+                                 [mm]     [mm]     [mm]     [mm]     [mm]    [deg]    [deg]    [deg]    [deg]
+  Kartierung Versuch 3          -1.95    -0.81    -0.00     2.11     2.11     0.00    -0.00    -0.05     0.05
+
+
+Abweichungen je Markergroesse
+=============================
+
+[Kartierung Versuch 3]  vs.  [Ground Truth]
+
+  Kantenlaenge 0.120 m   (n = 1)
+    dx      bias=    -1.95   mean=    1.95   rms=    1.95   max=    1.95   max_signed=    -1.95   [mm]
+    dy      bias=    -0.81   mean=    0.81   rms=    0.81   max=    0.81   max_signed=    -0.81   [mm]
+    dz      bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [mm]
+    d_xy    bias=        -   mean=    2.11   rms=    2.11   max=    2.11   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=    2.11   rms=    2.11   max=    2.11   max_signed=        -   [mm]
+    droll   bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dpitch  bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [deg]
+    dyaw    bias=    -0.05   mean=    0.05   rms=    0.05   max=    0.05   max_signed=    -0.05   [deg]
+    dangle  bias=        -   mean=    0.05   rms=    0.05   max=    0.05   max_signed=        -   [deg]
+
+  Kantenlaenge 0.170 m   (n = 68)
+    dx      bias=    -2.26   mean=    6.13   rms=    7.50   max=   19.84   max_signed=   -19.84   [mm]
+    dy      bias=    -0.47   mean=    5.30   rms=    6.76   max=   16.05   max_signed=   +16.05   [mm]
+    dz      bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [mm]
+    d_xy    bias=        -   mean=    8.75   rms=   10.10   max=   20.27   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=    8.75   rms=   10.10   max=   20.27   max_signed=        -   [mm]
+    droll   bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [deg]
+    dpitch  bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dyaw    bias=    -0.06   mean=    0.07   rms=    0.10   max=    0.34   max_signed=    -0.34   [deg]
+    dangle  bias=        -   mean=    0.07   rms=    0.10   max=    0.34   max_signed=        -   [deg]
+
+  Kantenlaenge 0.300 m   (n = 24)
+    dx      bias=    -2.57   mean=    8.15   rms=    9.38   max=   17.83   max_signed=   -17.83   [mm]
+    dy      bias=    +0.56   mean=    6.73   rms=    7.74   max=   13.28   max_signed=   +13.28   [mm]
+    dz      bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [mm]
+    d_xy    bias=        -   mean=   11.32   rms=   12.16   max=   19.37   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=   11.32   rms=   12.16   max=   19.37   max_signed=        -   [mm]
+    droll   bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dpitch  bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dyaw    bias=    -0.04   mean=    0.09   rms=    0.11   max=    0.22   max_signed=    +0.22   [deg]
+    dangle  bias=        -   mean=    0.09   rms=    0.11   max=    0.22   max_signed=        -   [deg]
+
+  Kantenlaenge 1.000 m   (n = 3)
+    dx      bias=    -7.67   mean=   15.15   rms=   15.69   max=   20.74   max_signed=   -20.74   [mm]
+    dy      bias=    +1.84   mean=    6.22   rms=    6.38   max=    7.77   max_signed=    +7.77   [mm]
+    dz      bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [mm]
+    d_xy    bias=        -   mean=   16.52   rms=   16.93   max=   21.75   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=   16.52   rms=   16.93   max=   21.75   max_signed=        -   [mm]
+    droll   bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dpitch  bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [deg]
+    dyaw    bias=    +0.14   mean=    0.14   rms=    0.18   max=    0.30   max_signed=    +0.30   [deg]
+    dangle  bias=        -   mean=    0.14   rms=    0.18   max=    0.30   max_signed=        -   [deg]
+
+
+Abweichungen je Entfernungsring um den Ursprung (x-y-Abstand)
+=============================================================
+
+[Kartierung Versuch 3]  vs.  [Ground Truth]
+
+  Ring 0-1 m   (n = 36)
+    dx      bias=    -1.31   mean=    3.58   rms=    4.24   max=    8.80   max_signed=    -8.80   [mm]
+    dy      bias=    -0.99   mean=    2.92   rms=    3.57   max=    7.95   max_signed=    +7.95   [mm]
+    dz      bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [mm]
+    d_xy    bias=        -   mean=    4.91   rms=    5.55   max=   10.84   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=    4.91   rms=    5.55   max=   10.84   max_signed=        -   [mm]
+    droll   bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dpitch  bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dyaw    bias=    -0.05   mean=    0.06   rms=    0.08   max=    0.22   max_signed=    -0.22   [deg]
+    dangle  bias=        -   mean=    0.06   rms=    0.08   max=    0.22   max_signed=        -   [deg]
+
+  Ring 1-1.5 m   (n = 19)
+    dx      bias=    -1.34   mean=    6.40   rms=    7.23   max=   12.19   max_signed=   -12.19   [mm]
+    dy      bias=    +0.33   mean=    5.65   rms=    6.51   max=   10.79   max_signed=   +10.79   [mm]
+    dz      bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [mm]
+    d_xy    bias=        -   mean=    9.04   rms=    9.73   max=   14.83   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=    9.04   rms=    9.73   max=   14.83   max_signed=        -   [mm]
+    droll   bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [deg]
+    dpitch  bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dyaw    bias=    -0.05   mean=    0.06   rms=    0.09   max=    0.27   max_signed=    -0.27   [deg]
+    dangle  bias=        -   mean=    0.06   rms=    0.09   max=    0.27   max_signed=        -   [deg]
+
+  Ring 1.5-2 m   (n = 27)
+    dx      bias=    -1.76   mean=    8.34   rms=    9.12   max=   13.76   max_signed=   -13.76   [mm]
+    dy      bias=    +0.95   mean=    8.46   rms=    9.52   max=   16.05   max_signed=   +16.05   [mm]
+    dz      bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [mm]
+    d_xy    bias=        -   mean=   12.74   rms=   13.18   max=   17.07   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=   12.74   rms=   13.18   max=   17.07   max_signed=        -   [mm]
+    droll   bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dpitch  bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dyaw    bias=    -0.04   mean=    0.09   rms=    0.11   max=    0.24   max_signed=    -0.24   [deg]
+    dangle  bias=        -   mean=    0.09   rms=    0.11   max=    0.24   max_signed=        -   [deg]
+
+  Ring 2-2.5 m   (n = 13)
+    dx      bias=    -7.73   mean=   12.66   rms=   13.60   max=   20.74   max_signed=   -20.74   [mm]
+    dy      bias=    -0.45   mean=    7.40   rms=    8.52   max=   14.84   max_signed=   +14.84   [mm]
+    dz      bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [mm]
+    d_xy    bias=        -   mean=   15.83   rms=   16.05   max=   21.75   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=   15.83   rms=   16.05   max=   21.75   max_signed=        -   [mm]
+    droll   bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dpitch  bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [deg]
+    dyaw    bias=    -0.08   mean=    0.14   rms=    0.17   max=    0.34   max_signed=    -0.34   [deg]
+    dangle  bias=        -   mean=    0.14   rms=    0.17   max=    0.34   max_signed=        -   [deg]
+
+  Ring 2.5-3 m   (n = 1)
+    dx      bias=   -19.84   mean=   19.84   rms=   19.84   max=   19.84   max_signed=   -19.84   [mm]
+    dy      bias=    -4.16   mean=    4.16   rms=    4.16   max=    4.16   max_signed=    -4.16   [mm]
+    dz      bias=    -0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [mm]
+    d_xy    bias=        -   mean=   20.27   rms=   20.27   max=   20.27   max_signed=        -   [mm]
+    d_xyz   bias=        -   mean=   20.27   rms=   20.27   max=   20.27   max_signed=        -   [mm]
+    droll   bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    +0.00   [deg]
+    dpitch  bias=    +0.00   mean=    0.00   rms=    0.00   max=    0.00   max_signed=    -0.00   [deg]
+    dyaw    bias=    -0.07   mean=    0.07   rms=    0.07   max=    0.07   max_signed=    -0.07   [deg]
+    dangle  bias=        -   mean=    0.07   rms=    0.07   max=    0.07   max_signed=        -   [deg]
+
+
+Paarweise Abstaende der Tags untereinander gegen 'Ground Truth' (3D)
+====================================================================
+Positiver Fehler bedeutet, dass die Karte den Abstand zu gross abbildet.
+
+[Kartierung Versuch 3]  vs.  [Ground Truth]
+  Gemeinsame Tags: 96   Paare: 4560
+  d_pair  bias=   +12.32   mean=   12.34   rms=   14.31   max=   35.44   max_signed=   +35.44   [mm]
+  Massstabsfaktor: 1.006839   entspricht +6.839 mm je Meter Basislaenge
+
+  Basislaenge       n      bias      mean       rms       max  max_signed   [mm]
+  0-1 m           986     +4.93      5.00      5.66     12.60      +12.60
+  1-2 m          1823    +10.40     10.41     11.35     23.60      +23.60
+  2-3 m          1242    +16.56     16.56     17.45     32.42      +32.42
+  3-4 m           468    +22.68     22.68     23.39     34.60      +34.60
+  4-5 m            41    +28.49     28.49     28.78     35.44      +35.44
+  5-6 m             0                               keine Paare

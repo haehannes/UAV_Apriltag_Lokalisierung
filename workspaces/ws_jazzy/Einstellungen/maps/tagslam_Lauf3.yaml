@@ -1,0 +1,714 @@
+tagslam_parameters:
+  # --- Lauf 2: genaue Karte, begrenzte Laufzeit ------------------
+  optimizer_mode: slow              # iSAM2 + Fehlerpruefung + voller GTSAM-Rueckfall
+  minimum_viewing_angle: 15.0
+  minimum_tag_area: 2500
+  max_num_incremental_opt: 100       # haeufige volle Optimierung -> genauer
+  pixel_noise: 1.0
+  max_subgraph_error: 5.0          # streng -> Ausreisser-Frames werden verworfen
+  subgraph_abs_prior_position_noise: 0.1
+  subgraph_abs_prior_rotation_noise: 0.1
+  use_approximate_sync: true
+  drop_time_fraction: 0.0
+
+
+body_defaults:
+  position_noise: 1.0
+  rotation_noise: 1.0
+
+
+default_body: tag_map
+
+
+bodies:
+- tag_map:
+    type: simple
+    is_static: true
+    default_tag_size: 0.167
+    pose:
+      position: {x: 0.0, y: 0.0, z: 0.0}
+      rotation: {x: 0.0, y: 0.0, z: 0.0}
+      position_noise: {x: 1.0, y: 1.0, z: 1.0}
+      rotation_noise: {x: 1.0, y: 1.0, z: 1.0}
+    tags:
+    # --- Anker / globaler Ursprung -------------------------------
+    - id: 0
+      size: 0.167
+      pose:
+        position: {x: 0.0, y: 0.0, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.0}
+        position_noise: {x: 1.0e-06, y: 1.0e-06, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 1.0e-06}
+    # --- restliche Tags: x/y und Yaw aus Lauf-1-Karte, staerker fixiert
+    #     z=0 (Boden) und Roll/Pitch=0 (flach) hart gepinnt
+    - id: 1
+      size: 0.120
+      pose:
+        position: {x: -0.242321, y: -0.000951, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000313}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 2
+      size: 0.170
+      pose:
+        position: {x: -0.241930, y: 0.241503, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001375}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 3
+      size: 0.170
+      pose:
+        position: {x: -0.242743, y: -0.243481, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000268}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 4
+      size: 0.170
+      pose:
+        position: {x: -0.485157, y: -0.002720, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001163}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 5
+      size: 0.170
+      pose:
+        position: {x: -0.484505, y: 0.239765, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000977}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 6
+      size: 0.170
+      pose:
+        position: {x: 0.000710, y: 0.242190, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000108}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 7
+      size: 0.170
+      pose:
+        position: {x: -0.485587, y: -0.245437, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000105}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 8
+      size: 0.170
+      pose:
+        position: {x: -0.000729, y: -0.242407, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001288}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 9
+      size: 0.170
+      pose:
+        position: {x: -0.727672, y: -0.003989, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000019}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 10
+      size: 0.170
+      pose:
+        position: {x: 0.242512, y: 0.000307, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001440}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 11
+      size: 0.170
+      pose:
+        position: {x: -0.240596, y: 0.483150, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003868}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 12
+      size: 0.170
+      pose:
+        position: {x: -0.242999, y: -0.485758, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000116}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 13
+      size: 0.170
+      pose:
+        position: {x: -0.726807, y: 0.238595, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000774}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 14
+      size: 0.170
+      pose:
+        position: {x: 0.243022, y: 0.242385, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000670}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 15
+      size: 0.170
+      pose:
+        position: {x: -0.728324, y: -0.246864, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.001243}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 16
+      size: 0.170
+      pose:
+        position: {x: 0.241719, y: -0.241949, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001952}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 17
+      size: 0.170
+      pose:
+        position: {x: -0.482856, y: 0.481828, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002787}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 18
+      size: 0.170
+      pose:
+        position: {x: 0.001968, y: 0.483749, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000312}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 19
+      size: 0.170
+      pose:
+        position: {x: -0.485900, y: -0.488034, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000158}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 20
+      size: 0.170
+      pose:
+        position: {x: -0.001228, y: -0.484977, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000759}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 21
+      size: 0.170
+      pose:
+        position: {x: -0.724610, y: 0.480905, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003156}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 22
+      size: 0.170
+      pose:
+        position: {x: 0.243806, y: 0.484066, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000736}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 23
+      size: 0.170
+      pose:
+        position: {x: -0.728338, y: -0.489204, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000120}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 24
+      size: 0.170
+      pose:
+        position: {x: 0.240934, y: -0.484483, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001250}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 25
+      size: 0.170
+      pose:
+        position: {x: -0.969702, y: -0.004662, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000274}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 26
+      size: 0.170
+      pose:
+        position: {x: 0.484144, y: 0.000523, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000174}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 27
+      size: 0.170
+      pose:
+        position: {x: -0.969257, y: 0.237962, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000996}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 28
+      size: 0.170
+      pose:
+        position: {x: -0.970670, y: -0.248051, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000164}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 29
+      size: 0.170
+      pose:
+        position: {x: 0.484948, y: 0.242712, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000282}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 30
+      size: 0.170
+      pose:
+        position: {x: 0.483506, y: -0.241642, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000756}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 31
+      size: 0.170
+      pose:
+        position: {x: -0.966950, y: 0.480216, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.004800}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 32
+      size: 0.170
+      pose:
+        position: {x: -0.970528, y: -0.491155, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000674}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 33
+      size: 0.170
+      pose:
+        position: {x: 0.485365, y: 0.484565, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000992}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 34
+      size: 0.170
+      pose:
+        position: {x: 0.482531, y: -0.483676, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002114}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 35
+      size: 0.170
+      pose:
+        position: {x: -0.234763, y: 1.211317, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001526}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 36
+      size: 0.170
+      pose:
+        position: {x: -1.453449, y: -0.006916, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001258}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 37
+      size: 0.170
+      pose:
+        position: {x: -0.248278, y: -1.208620, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000118}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 38
+      size: 0.170
+      pose:
+        position: {x: 0.967025, y: 0.000891, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002605}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 39
+      size: 0.170
+      pose:
+        position: {x: -0.841003, y: 1.208114, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000488}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 40
+      size: 0.170
+      pose:
+        position: {x: 0.368847, y: 1.211992, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001829}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 41
+      size: 0.170
+      pose:
+        position: {x: -0.852847, y: -1.212471, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000063}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 42
+      size: 0.170
+      pose:
+        position: {x: 0.355813, y: -1.206237, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003835}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 43
+      size: 0.170
+      pose:
+        position: {x: 1.571334, y: 0.000835, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000426}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 44
+      size: 0.170
+      pose:
+        position: {x: -0.235441, y: 1.818246, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001567}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 45
+      size: 0.170
+      pose:
+        position: {x: -2.058405, y: -0.006933, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002372}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 46
+      size: 0.170
+      pose:
+        position: {x: -0.253471, y: -1.814733, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000088}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 47
+      size: 0.170
+      pose:
+        position: {x: -0.841464, y: 1.813648, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000329}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 48
+      size: 0.170
+      pose:
+        position: {x: 0.368406, y: 1.817466, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002014}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 49
+      size: 0.170
+      pose:
+        position: {x: -0.854223, y: -1.815558, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000105}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 50
+      size: 0.170
+      pose:
+        position: {x: 0.350177, y: -1.816186, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.007253}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 51
+      size: 0.170
+      pose:
+        position: {x: -2.663992, y: -0.008279, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000024}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 52
+      size: 0.170
+      pose:
+        position: {x: 2.175504, y: 0.004162, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000879}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 53
+      size: 0.170
+      pose:
+        position: {x: -1.456674, y: -1.813284, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.004972}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 54
+      size: 0.170
+      pose:
+        position: {x: 0.962007, y: -1.816999, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.006181}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 55
+      size: 0.170
+      pose:
+        position: {x: -1.456026, y: -1.213055, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002310}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 56
+      size: 0.170
+      pose:
+        position: {x: 0.961268, y: -1.206491, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002593}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 57
+      size: 0.170
+      pose:
+        position: {x: -1.446791, y: 1.206728, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002165}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 58
+      size: 0.170
+      pose:
+        position: {x: 0.971779, y: 1.211898, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001451}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 59
+      size: 0.170
+      pose:
+        position: {x: -1.447444, y: 1.810974, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.007142}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 60
+      size: 0.170
+      pose:
+        position: {x: 0.969971, y: 1.816619, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002517}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 61
+      size: 0.170
+      pose:
+        position: {x: -1.451091, y: 0.478591, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003229}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 62
+      size: 0.170
+      pose:
+        position: {x: -1.454671, y: -0.492584, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000630}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 63
+      size: 0.170
+      pose:
+        position: {x: -2.055433, y: 0.479293, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003522}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 64
+      size: 0.170
+      pose:
+        position: {x: -2.058154, y: -0.491397, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001063}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 65
+      size: 0.170
+      pose:
+        position: {x: 0.968698, y: 0.484376, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002383}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 66
+      size: 0.170
+      pose:
+        position: {x: 0.965446, y: -0.483168, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001068}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 67
+      size: 0.170
+      pose:
+        position: {x: 1.571885, y: 0.484056, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000663}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 68
+      size: 0.170
+      pose:
+        position: {x: 1.572329, y: -0.482663, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002292}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 100
+      size: 0.300
+      pose:
+        position: {x: -1.156129, y: -1.514915, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003622}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 101
+      size: 0.300
+      pose:
+        position: {x: -0.552587, y: -1.514414, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000488}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 102
+      size: 0.300
+      pose:
+        position: {x: 0.050534, y: -1.510963, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003359}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 103
+      size: 0.300
+      pose:
+        position: {x: 0.655771, y: -1.510214, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003591}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 104
+      size: 0.300
+      pose:
+        position: {x: -1.154639, y: -0.911484, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000315}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 105
+      size: 0.300
+      pose:
+        position: {x: -0.600606, y: -0.908874, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001152}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 106
+      size: 0.300
+      pose:
+        position: {x: 0.105478, y: -0.904196, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003264}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 107
+      size: 0.300
+      pose:
+        position: {x: 0.659865, y: -0.902380, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003820}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 108
+      size: 0.300
+      pose:
+        position: {x: -2.361283, y: -0.310970, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001408}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 109
+      size: 0.300
+      pose:
+        position: {x: -1.756512, y: -0.311026, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001658}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 110
+      size: 0.300
+      pose:
+        position: {x: 1.268384, y: -0.301979, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000555}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 111
+      size: 0.300
+      pose:
+        position: {x: 1.874395, y: -0.297965, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.005130}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 112
+      size: 0.300
+      pose:
+        position: {x: -2.359042, y: 0.296037, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002737}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 113
+      size: 0.300
+      pose:
+        position: {x: -1.754196, y: 0.296532, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003088}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 114
+      size: 0.300
+      pose:
+        position: {x: 1.270197, y: 0.302419, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002012}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 115
+      size: 0.300
+      pose:
+        position: {x: 1.873337, y: 0.304154, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.001388}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 116
+      size: 0.300
+      pose:
+        position: {x: -1.145620, y: 0.904090, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001127}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 117
+      size: 0.300
+      pose:
+        position: {x: -0.589307, y: 0.906401, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000595}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 118
+      size: 0.300
+      pose:
+        position: {x: 0.116419, y: 0.908512, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.003228}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 119
+      size: 0.300
+      pose:
+        position: {x: 0.669849, y: 0.908852, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001361}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 120
+      size: 0.300
+      pose:
+        position: {x: -1.144533, y: 1.510171, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000694}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 121
+      size: 0.300
+      pose:
+        position: {x: -0.537465, y: 1.513532, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.000718}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 122
+      size: 0.300
+      pose:
+        position: {x: 0.067455, y: 1.515357, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.001765}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 123
+      size: 0.300
+      pose:
+        position: {x: 0.670462, y: 1.514851, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002008}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 200
+      size: 1.000
+      pose:
+        position: {x: -2.119583, y: -1.312258, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.002938}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 202
+      size: 1.000
+      pose:
+        position: {x: -2.112138, y: 1.301233, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: -0.000184}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+    - id: 203
+      size: 1.000
+      pose:
+        position: {x: 1.629750, y: 1.301465, z: 0.0}
+        rotation: {x: 0.0, y: 0.0, z: 0.001070}
+        position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
+        rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
+
+- camera:
+    is_static: false
+    type: simple
+    fake_odom_translation_noise: 1.0
+    fake_odom_rotation_noise: 1.0

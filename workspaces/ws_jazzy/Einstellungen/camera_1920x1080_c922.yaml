@@ -1,0 +1,37 @@
+# Datei gecheckt 22.05.
+# Zweite Kalibrierung (25.05)
+image_width: 1920
+image_height: 1080
+camera_name: camera
+
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [1436.035254, 0.0, 907.441181,
+         0.0, 1435.631394, 529.629230,
+         0.0, 0.0, 1.0]
+
+distortion_model: plumb_bob
+
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.020501,
+         -0.076950,
+         -0.000463,
+         -0.005645,
+         0.0]
+
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0,
+         0.0, 1.0, 0.0,
+         0.0, 0.0, 1.0]
+
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [1422.619751, 0.0, 892.931994, 0.0,
+         0.0, 1440.023071, 528.758300, 0.0,
+         0.0, 0.0, 1.0, 0.0]

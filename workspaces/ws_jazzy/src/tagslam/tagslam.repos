@@ -1,0 +1,5 @@
+repositories:
+  flex_sync:
+    type: git
+    url: https://github.com/berndpfrommer/flex_sync.git
+    version: master

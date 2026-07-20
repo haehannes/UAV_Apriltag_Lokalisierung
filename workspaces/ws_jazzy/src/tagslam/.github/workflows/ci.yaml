@@ -1,0 +1,19 @@
+#
+# continuous integration workflow
+#
+name: build repo
+
+on:
+  push:
+    branches: [ros2]
+  pull_request:
+    branches: [ros2]
+  workflow_dispatch:
+    branches: [ros2]
+
+jobs:
+  build_ros2:
+    uses: ros-misc-utilities/ros_build_scripts/.github/workflows/ros2_since_jazzy.yml@master
+    with:
+      repo: ${{ github.event.repository.name }}
+      vcs_url: ${{ github.event.repository.name }}.repos

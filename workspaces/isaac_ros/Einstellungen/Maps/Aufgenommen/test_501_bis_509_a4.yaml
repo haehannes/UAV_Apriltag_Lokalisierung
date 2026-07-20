@@ -1,0 +1,132 @@
+
+############################################################
+# 3x3-Raster der Tags 501-509
+#
+# Geometrie (Draufsicht, y zeigt nach oben, x nach rechts):
+#
+#     501  ---  502  ---  503        (y = +0.0525)
+#     |         |         |
+#     504  ---  505  ---  506        (y =  0.0000)   <- Mitte
+#     |         |         |
+#     507  ---  508  ---  509        (y = -0.0525)
+#
+#     ^         ^         ^
+#  x=-0.0525  x=0.0000  x=+0.0525
+#
+# Tag-Groesse: 41 mm = 0.041 m
+# Luecke zwischen Tag-Raendern: 11.5 mm = 0.0115 m
+# Mittelpunkt-Abstand: 41 + 11.5 = 52.5 mm = 0.0525 m
+#
+# Ursprung der Karte = Mittelpunkt von Tag 505.
+# Alle Tags liegen flach auf der x-y-Ebene (z = 0, keine Rotation).
+# Alle Tags sind als '' deklariert.
+############################################################
+
+bodies:
+  - tag_map:
+      type: simple
+      is_static: true
+      default_tag_size: 0.041
+
+      pose:
+        position:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+        rotation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+        position_noise:
+          x: 0.001
+          y: 0.001
+          z: 0.001
+        rotation_noise:
+          x: 0.001
+          y: 0.001
+          z: 0.001
+
+      tags:
+        # ------- Obere Reihe (y = +0.0525) -------
+        - id: 501
+          size: 0.041
+          pose:
+            position: {x: -0.0525, y:  0.0525, z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            
+
+        - id: 502
+          size: 0.041
+          pose:
+            position: {x:  0.0,    y:  0.0525, z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            
+
+        - id: 503
+          size: 0.041
+          pose:
+            position: {x:  0.0525, y:  0.0525, z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            
+
+        # ------- Mittlere Reihe (y = 0.0) -------
+        - id: 504
+          size: 0.041
+          pose:
+            position: {x: -0.0525, y:  0.0,    z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            
+
+        - id: 505
+          size: 0.041
+          pose:
+            position: {x:  0.0,    y:  0.0,    z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            
+
+        - id: 506
+          size: 0.041
+          pose:
+            position: {x:  0.0525, y:  0.0,    z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            
+
+        # ------- Untere Reihe (y = -0.0525) -------
+        - id: 507
+          size: 0.041
+          pose:
+            position: {x: -0.0525, y: -0.0525, z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            
+
+        - id: 508
+          size: 0.041
+          pose:
+            position: {x:  0.0,    y: -0.0525, z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            
+
+        - id: 509
+          size: 0.041
+          pose:
+            position: {x:  0.0525, y: -0.0525, z: 0.0}
+            rotation: {x:  0.0,    y:  0.0,    z: 0.0}
+            position_noise: {x: 0.001, y: 0.001, z: 0.001}
+            rotation_noise: {x: 0.001, y: 0.001, z: 0.001}
+            

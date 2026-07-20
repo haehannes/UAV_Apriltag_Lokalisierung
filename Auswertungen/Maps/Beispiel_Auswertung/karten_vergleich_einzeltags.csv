@@ -1,0 +1,2 @@
+tag_id,size_m,entfernung_m,karte,x_m,y_m,z_m,ref_x_m,ref_y_m,ref_z_m,dx_mm,dy_mm,dz_mm,d_xy_mm,d_xyz_mm,droll_deg,dpitch_deg,dyaw_deg,dangle_deg
+1,0.120000,0.2400,Kartierung Versuch 3,-0.241952,-0.000811,-0.000000,-0.240000,0.000000,0.000000,-1.9522,-0.8110,-0.0000,2.1139,2.1139,0.0000,-0.0000,-0.0511,0.0511

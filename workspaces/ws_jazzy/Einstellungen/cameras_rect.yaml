@@ -1,0 +1,75 @@
+cam0:
+  camera_model: pinhole
+
+  ############################################################
+  # Intrinsics für das bereits entzerrte Bild /camera/image_rect
+  #
+  # Grundlage:
+  #   neue projection_matrix bei 1920x1080:
+  #     fx = 1422.619751
+  #     fy = 1440.023071
+  #     cx = 892.931994
+  #     cy = 528.758300
+  #
+  # WICHTIG:
+  #   Für TagSLAM/cameras.yaml bei image_topic: /camera/image_rect
+  #   die Werte aus der projection_matrix verwenden,
+  #   nicht die ursprüngliche camera_matrix.
+  ############################################################
+  intrinsics: [
+    1422.619751,
+    1440.023071,
+    892.931994,
+    528.758300
+  ]
+
+  ############################################################
+  # WICHTIG:
+  # Weil image_topic bereits /camera/image_rect ist,
+  # ist das Bild schon entzerrt.
+  #
+  # Deshalb hier KEINE ursprünglichen Verzerrungswerte mehr eintragen,
+  # sondern 0 setzen.
+  #
+  # Ursprüngliche Kalibrier-Verzerrung wäre:
+  #   [0.020501, -0.076950, -0.000463, -0.005645, 0.000000]
+  ############################################################
+  distortion_model: plumb_bob
+
+  distortion_coeffs: [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+
+  ############################################################
+  # Auflösung
+  ############################################################
+  resolution: [1920, 1080]
+
+  ############################################################
+  # Topics
+  #
+  # /camera/image_rect ist das entzerrte Bild.
+  # /camera/camera_info_rect ist dein CameraInfo-Topic.
+  ############################################################
+  image_topic: /camera/image_rect
+  camera_info_topic: /camera/camera_info
+  tag_topic: /tagslam/tag_detections
+
+  ############################################################
+  # WICHTIG:
+  # Muss zum header.frame_id deiner Bilder passen.
+  #
+  # In deinem aktuellen gscam-Launch steht:
+  #   frame_id: camera_optical_frame
+  #
+  # Wenn der Bild-header wirklich camera_optical_frame ist,
+  # sollte hier ebenfalls camera_optical_frame stehen.
+  #
+  # Falls du im Launch-File frame_id: camera setzt,
+  # dann hier ebenfalls auf camera ändern.
+  ############################################################
+  rig_body: camera

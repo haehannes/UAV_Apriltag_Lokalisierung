@@ -1,0 +1,41 @@
+# ROS2 / colcon build-Artefakte (in jedem verschachtelten Workspace)
+build/
+install/
+log/
+
+# Falls colcon mal andere Ordner anlegt
+**/build/
+**/install/
+**/log/
+
+# Python virtual environments
+**/venv/
+
+
+# ROS Bags
+**/*.db3
+**/metadata.yaml
+
+
+# =========================
+# System
+# =========================
+.DS_Store
+Thumbs.db
+workspaces/isaac_ros_dev/src/isaac_ros_common/
+workspaces/isaac_ros_dev/build/
+workspaces/isaac_ros_dev/install/
+workspaces/isaac_ros_dev/log/
+workspaces/isaac_ros_dev/src/isaac_ros_common/
+workspaces/isaac_ros_dev/src/isaac_ros_common_broken/
+workspaces/isaac_ros_dev/isaac_ros_apriltag/
+*.mcap
+*.pt
+*.onnx
+*.engine
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+
+

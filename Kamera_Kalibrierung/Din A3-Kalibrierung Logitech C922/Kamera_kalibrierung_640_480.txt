@@ -1,0 +1,130 @@
+Kamera kalibrieren:  
+ros2 run camera_calibration cameracalibrator \
+  --size 9x6 \
+  --square 0.032 \
+  --ros-args \
+  --remap image:=/image_raw \
+  --remap camera/set_camera_info:=/v4l2_camera/set_camera_info
+
+
+mono pinhole calibration...
+D = [0.014595711778502973, -0.07995696751832888, 0.000439296415175789, 0.0018080760676622521, 0.0]
+K = [637.7177106975396, 0.0, 318.4359841845707, 0.0, 637.2136913779273, 234.28191530089543, 0.0, 0.0, 1.0]
+R = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+P = [635.8331909179688, 0.0, 318.80145223984437, 0.0, 0.0, 636.3882446289062, 233.9001090685997, 0.0, 0.0, 0.0, 1.0, 0.0]
+None
+# oST version 5.0 parameters
+
+
+[image]
+
+width
+640
+
+height
+480
+
+[narrow_stereo]
+
+camera matrix
+637.717711 0.000000 318.435984
+0.000000 637.213691 234.281915
+0.000000 0.000000 1.000000
+
+distortion
+0.014596 -0.079957 0.000439 0.001808 0.000000
+
+rectification
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 0.000000 1.000000
+
+projection
+635.833191 0.000000 318.801452 0.000000
+0.000000 636.388245 233.900109 0.000000
+0.000000 0.000000 1.000000 0.000000
+
+('Wrote calibration data to', '/tmp/calibrationdata.tar.gz')
+D = [0.014595711778502973, -0.07995696751832888, 0.000439296415175789, 0.0018080760676622521, 0.0]
+K = [637.7177106975396, 0.0, 318.4359841845707, 0.0, 637.2136913779273, 234.28191530089543, 0.0, 0.0, 1.0]
+R = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+P = [635.8331909179688, 0.0, 318.80145223984437, 0.0, 0.0, 636.3882446289062, 233.9001090685997, 0.0, 0.0, 0.0, 1.0, 0.0]
+# oST version 5.0 parameters
+
+
+[image]
+
+width
+640
+
+height
+480
+
+[narrow_stereo]
+
+camera matrix
+637.717711 0.000000 318.435984
+0.000000 637.213691 234.281915
+0.000000 0.000000 1.000000
+
+distortion
+0.014596 -0.079957 0.000439 0.001808 0.000000
+
+rectification
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 0.000000 1.000000
+
+projection
+635.833191 0.000000 318.801452 0.000000
+0.000000 636.388245 233.900109 0.000000
+0.000000 0.000000 1.000000 0.000000
+
+Traceback (most recent call last):
+  File "/opt/ros/jazzy/lib/camera_calibration/cameracalibrator", line 33, in <module>
+    sys.exit(load_entry_point('camera-calibration==5.0.11', 'console_scripts', 'cameracalibrator')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/camera_calibration/nodes/cameracalibrator.py", line 227, in main
+    rclpy.shutdown()
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+    _shutdown(context=context)
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
+    context.shutdown()
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 127, in shutdown
+    raise RuntimeError('Context must be initialized before it can be shutdown')
+RuntimeError: Context must be initialized before it can be shutdown
+D = [0.014595711778502973, -0.07995696751832888, 0.000439296415175789, 0.0018080760676622521, 0.0]
+K = [637.7177106975396, 0.0, 318.4359841845707, 0.0, 637.2136913779273, 234.28191530089543, 0.0, 0.0, 1.0]
+R = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+P = [635.8331909179688, 0.0, 318.80145223984437, 0.0, 0.0, 636.3882446289062, 233.9001090685997, 0.0, 0.0, 0.0, 1.0, 0.0]
+None
+# oST version 5.0 parameters
+
+
+[image]
+
+width
+640
+
+height
+480
+
+[narrow_stereo]
+
+camera matrix
+637.717711 0.000000 318.435984
+0.000000 637.213691 234.281915
+0.000000 0.000000 1.000000
+
+distortion
+0.014596 -0.079957 0.000439 0.001808 0.000000
+
+rectification
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 0.000000 1.000000
+
+projection
+635.833191 0.000000 318.801452 0.000000
+0.000000 636.388245 233.900109 0.000000
+0.000000 0.000000 1.000000 0.000000
