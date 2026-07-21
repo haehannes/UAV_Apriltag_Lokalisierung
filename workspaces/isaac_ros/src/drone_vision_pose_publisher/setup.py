@@ -12,7 +12,7 @@ setup(
     ],
     install_requires=["setuptools", "PyYAML"],
     zip_safe=True,
-    maintainer="hannes",
+    maintainer="Hannes Mueller",
     maintainer_email="hannesmueller99@t-online.de",
     description="Direct vision pose publisher for MAVROS/PX4 using AprilTag detections.",
     license="TODO",

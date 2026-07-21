@@ -4,7 +4,7 @@
   <name>apriltag_map_tf</name>
   <version>0.0.1</version>
   <description>Publiziert eine AprilTag-Karte als statische TF und Marker fuer RViz.</description>
-  <maintainer email="hannes@todo.todo">hannes</maintainer>
+  <maintainer email="hannesmueller99@t-online.de">Hannes Mueller</maintainer>
   <license>MIT</license>
 
   <exec_depend>rclpy</exec_depend>

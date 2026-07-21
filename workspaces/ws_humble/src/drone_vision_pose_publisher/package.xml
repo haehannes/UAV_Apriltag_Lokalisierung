@@ -4,7 +4,7 @@
   <version>0.0.1</version>
   <description>Direct vision pose publisher for MAVROS/PX4 using AprilTag detections.</description>
   <maintainer email="hannesmueller99@t-online.de">hannes</maintainer>
-  <license>TODO</license>
+  <license>MIT</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
 

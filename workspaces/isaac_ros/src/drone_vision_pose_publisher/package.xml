@@ -3,7 +3,7 @@
   <name>drone_vision_pose_publisher</name>
   <version>0.0.1</version>
   <description>Direct vision pose publisher for MAVROS/PX4 using AprilTag detections.</description>
-  <maintainer email="hannesmueller99@t-online.de">hannes</maintainer>
+  <maintainer email="hannesmueller99@t-online.de">Hannes Mueller</maintainer>
   <license>TODO</license>
 
   <buildtool_depend>ament_python</buildtool_depend>

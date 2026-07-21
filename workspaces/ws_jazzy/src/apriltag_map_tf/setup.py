@@ -18,8 +18,8 @@ setup(
     ],
     install_requires=["setuptools"],
     zip_safe=True,
-    maintainer="hannes",
-    maintainer_email="hannes@todo.todo",
+    maintainer="Hannes Mueller",
+    maintainer_email="hannesmueller99@t-online.de",
     description="Publiziert eine AprilTag-Karte als statische TF und Marker fuer RViz.",
     license="MIT",
     entry_points={

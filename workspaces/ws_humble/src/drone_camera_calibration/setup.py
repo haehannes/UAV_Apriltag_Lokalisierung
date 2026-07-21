@@ -13,10 +13,10 @@ setup(
     ],
     install_requires=['setuptools', 'pyyaml', 'numpy'],
     zip_safe=True,
-    maintainer='hannes',
-    maintainer_email='hannes@example.com',
+    maintainer='Hannes Mueller',
+    maintainer_email='hannesmueller99@t-online.de',
     description='Berechnet gemittelte Transformationen zwischen Drohnenmittelpunkt und Kameras.',
-    license='TODO',
+    license='MIT',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

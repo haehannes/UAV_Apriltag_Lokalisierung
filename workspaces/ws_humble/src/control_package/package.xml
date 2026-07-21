@@ -3,7 +3,7 @@
   <name>control</name>
   <version>0.0.0</version>
   <description>Small console control application for MAVROS and uXRCE-DDS.</description>
-  <maintainer email="hannesmueller99@t-onlinde.de">hannes</maintainer>
+  <maintainer email="hannesmueller99@t-onlinde.de">Hannes Mueller</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
