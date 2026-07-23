@@ -71,3 +71,4 @@ ros2 run camera_calibration cameracalibrator \
 - Das Schachbrett (`chessboard-to-print.pdf`) sollte plan auf einer festen Unterlage montiert werden, damit die Messung nicht durch Wellen im Papier verfälscht wird.
 - Für einen vollständigen Kalibrierlauf das Muster in verschiedenen Abständen, Winkeln und Bildbereichen zeigen, bis im Kalibrator die Balken **X**, **Y**, **Size** und **Skew** ausreichend gefüllt sind.
 - C920 und C922 getrennt kalibrieren und die Ergebnisse eindeutig zuordnen — die beiden Modelle unterscheiden sich.
+- Es muss für jede eingestellte/genutzte Auflösung erneut kalibriert werden. 
