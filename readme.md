@@ -156,4 +156,6 @@ Den in der `gscam_config` angegebenen `device`-Pfad entsprechend anpassen.
 - Die Workspaces sind an unterschiedliche ROS2-Distributionen gebunden: `isaac_ros` und `ws_humble` laufen unter **Humble** (Jetson), `ws_jazzy` unter **Jazzy**.
 - Details zur jeweiligen Nutzung finden sich in den README-Dateien der einzelnen Unterordner.
 - Bei der Verwendeten Drohne war die Motorlast schon sehr hoch (kann bei Steuerbewegungen zu Höhenverlust führen.)
-- bei der Positionierung sind umbedingt Kameras mit höhren FPS-Zahlen als 30 zu verwenden. 
+- bei der Positionierung sind umbedingt Kameras mit höhren FPS-Zahlen als 30 zu verwenden.
+- Der PX4 wird im Offoard-Modus verwendet. Um zu armieren müssen sowohl ist Positionsdaten, als auch Sollpositionsdaten gesendet werden. 
+  
